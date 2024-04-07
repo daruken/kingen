@@ -1,0 +1,4 @@
+rootProject.name = 'kingen'
+
+include ':gateway'
+include ':rabbit'
