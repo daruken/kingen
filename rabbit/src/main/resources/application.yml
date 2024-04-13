@@ -12,7 +12,7 @@ spring:
     database: rabbit
     port: 3306
     username: root
-    password:
+    password: P@ssw0rd
 
   codec:
     max-in-memory-size: 20MB
