@@ -1,0 +1,8 @@
+spring:
+    application:
+        name: kingen
+    profiles:
+        active: default
+
+server:
+    port: 8761

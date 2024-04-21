@@ -6,7 +6,7 @@ import org.springframework.http.ResponseEntity.ok
 import org.springframework.web.bind.annotation.*
 
 @RestController
-@RequestMapping("/members")
+@RequestMapping("/rabbit/members")
 class MemberController(
     private val memberUseCase: MemberUseCase
 ) {
