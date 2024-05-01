@@ -5,7 +5,7 @@ on:
     branches: [ main ]
 
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
 
     steps:
@@ -19,11 +19,11 @@ jobs:
           java-version: '17'
 
       - name: Run tests
-        run: ./gradlew :xxxx-core:clean :xxxx-api:clean :xxxx-core:test :xxxx-api:test
+        run: ./gradlew clean -x test
 
   deploy:
     runs-on: ubuntu-latest
-    needs: test
+    needs: build
 
     steps:
       - name: Checkout repository
