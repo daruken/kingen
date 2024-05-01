@@ -2,7 +2,7 @@ FROM openjdk:17-jdk-slim
 
 COPY gradlew .
 COPY gradle gradle
-COPY build.gradle .
+COPY build.gradle.kts .
 COPY settings.gradle .
 COPY src src
 
