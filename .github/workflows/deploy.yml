@@ -25,7 +25,6 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
-          file: ./Dockerfile
           push: true
-          tags: '${{ vars.IMAGE_NAME }}:${{ github.sha }}'
+          tags: '${{ vars.BACK_DOCKER_USERNAME }}/${{ vars.IMAGE_NAME }}:${{ github.sha }}'
 
