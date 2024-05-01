@@ -33,7 +33,7 @@ jobs:
           password: ${{ secrets.BACK_DOCKER_TOKEN }}
 
       - name: Build Docker image
-        run: docker build -t ${{ vars.BACK_DOCKER_USERNAME }}/${{ vars.IMAGE_NAME }}:${{ github.sha }} .
+        run: docker build -t ${{ vars.IMAGE_NAME }}:${{ github.sha }} .
 
       - name: Push Docker image
         run: docker push ${{ vars.BACK_DOCKER_USERNAME }}/${{ vars.IMAGE_NAME }}:${{ github.sha }}
