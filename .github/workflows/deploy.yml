@@ -12,11 +12,11 @@ jobs:
       matrix:
         include:
           - dockerfile: gateway/Dockerfile
-            image: ${{ secrets.DOCKERHUB_USERNAME }}/gateway
+            image: daruken/gateway
           - dockerfile: rabbit/Dockerfile
-            image: ${{ secrets.DOCKERHUB_USERNAME }}/rabbit
+            image: daruken/rabbit
           - dockerfile: ./Dockerfile
-            image: ${{ secrets.DOCKERHUB_USERNAME }}/kingen
+            image: daruken/kingen
     permissions:
       contents: read
       packages: write
