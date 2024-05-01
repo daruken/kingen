@@ -10,8 +10,8 @@ RUN chmod +x ./gradlew
 RUN ./gradlew clean build
 
 FROM openjdk:17-jdk-slim
-COPY --from=builder build/libs/kingen-0.0.1-SNAPSHOT.jar kingen.jar
+COPY --from=builder build/libs/rabbit-0.0.1-SNAPSHOT.jar rabbit.jar
 
-EXPOSE 8761
+EXPOSE 18080
 
-ENTRYPOINT ["java", "-jar", "kingen.jar"]
+ENTRYPOINT ["java", "-jar", "rabbit.jar"]

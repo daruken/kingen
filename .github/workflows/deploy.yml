@@ -7,6 +7,19 @@ on:
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - dockerfile: gateway/Dockerfile
+            name: gateway
+            image: ghcr.io/${{ vars.BACK_DOCKER_USERNAME }}/gateway
+          - dockerfile: rabbit/Dockerfile
+            name: rabbit
+            image: ghcr.io/${{ vars.BACK_DOCKER_USERNAME }}/rabbit
+          - dockerfile: ./Dockerfile
+            name: kingen
+            image: ghcr.io/${{ vars.BACK_DOCKER_USERNAME }}/kingen
 
     steps:
       - name: Checkout repository
@@ -26,5 +39,5 @@ jobs:
         with:
           context: .
           push: true
-          tags: '${{ vars.BACK_DOCKER_USERNAME }}/${{ vars.IMAGE_NAME }}:${{ github.sha }}'
+          tags: '${{ vars.IMAGE_NAME }}:${{ github.sha }}'
 

@@ -10,8 +10,8 @@ RUN chmod +x ./gradlew
 RUN ./gradlew clean build
 
 FROM openjdk:17-jdk-slim
-COPY --from=builder build/libs/kingen-0.0.1-SNAPSHOT.jar kingen.jar
+COPY --from=builder build/libs/gateway-0.0.1-SNAPSHOT.jar gateway.jar
 
-EXPOSE 8761
+EXPOSE 28080
 
-ENTRYPOINT ["java", "-jar", "kingen.jar"]
+ENTRYPOINT ["java", "-jar", "gateway.jar"]
