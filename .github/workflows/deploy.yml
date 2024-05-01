@@ -7,19 +7,19 @@ on:
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
-#    strategy:
-#      fail-fast: false
-#      matrix:
-#        include:
-#          - dockerfile: gateway/Dockerfile
-#            image: daruken/gateway
-#          - dockerfile: rabbit/Dockerfile
-#            image: daruken/rabbit
-#          - dockerfile: ./Dockerfile
-#            image: daruken/kingen
-#    permissions:
-#      contents: read
-#      packages: write
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - dockerfile: gateway/Dockerfile
+            image: gateway
+          - dockerfile: rabbit/Dockerfile
+            image: rabbit
+          - dockerfile: ./Dockerfile
+            image: kingen
+    permissions:
+      contents: read
+      packages: write
 
     steps:
       - name: Checkout repository
