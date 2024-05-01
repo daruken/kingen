@@ -7,19 +7,19 @@ on:
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        include:
-          - dockerfile: gateway/Dockerfile
-            image: daruken/gateway
-          - dockerfile: rabbit/Dockerfile
-            image: daruken/rabbit
-          - dockerfile: ./Dockerfile
-            image: daruken/kingen
-    permissions:
-      contents: read
-      packages: write
+#    strategy:
+#      fail-fast: false
+#      matrix:
+#        include:
+#          - dockerfile: gateway/Dockerfile
+#            image: daruken/gateway
+#          - dockerfile: rabbit/Dockerfile
+#            image: daruken/rabbit
+#          - dockerfile: ./Dockerfile
+#            image: daruken/kingen
+#    permissions:
+#      contents: read
+#      packages: write
 
     steps:
       - name: Checkout repository
@@ -40,5 +40,4 @@ jobs:
           context: .
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: '${{ vars.IMAGE_NAME }}:${{ github.sha }}'
-
+          tags: daruken/kingen:${{ github.sha }}, daruken/gateway:${{ github.sha }}, daruken/rabbit:${{ github.sha }}
