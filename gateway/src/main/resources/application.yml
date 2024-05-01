@@ -5,7 +5,7 @@ spring:
     gateway:
       routes:
         - id: rabbit
-          uri: http://localhost:8080
+          uri: http://localhost:18080
           predicates:
             - Path=/rabbit/**
           filters:
