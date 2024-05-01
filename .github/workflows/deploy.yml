@@ -13,13 +13,13 @@ jobs:
         include:
           - dockerfile: gateway/Dockerfile
             name: gateway
-            image: ghcr.io/${{ vars.BACK_DOCKER_USERNAME }}/gateway
+            image: ghcr.io/gateway
           - dockerfile: rabbit/Dockerfile
             name: rabbit
-            image: ghcr.io/${{ vars.BACK_DOCKER_USERNAME }}/rabbit
+            image: ghcr.io/rabbit
           - dockerfile: ./Dockerfile
             name: kingen
-            image: ghcr.io/${{ vars.BACK_DOCKER_USERNAME }}/kingen
+            image: ghcr.io/kingen
     permissions:
       contents: read
       packages: write
@@ -34,7 +34,7 @@ jobs:
       - name: Login to Docker Hub
         uses: docker/login-action@v3
         with:
-          registry: ghcr.io
+          registry: docker.io
           username: ${{ vars.BACK_DOCKER_USERNAME }}
           password: ${{ secrets.BACK_DOCKER_TOKEN }}
 
