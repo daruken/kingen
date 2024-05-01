@@ -4,9 +4,10 @@ COPY gradlew .
 COPY gradle gradle
 COPY build.gradle.kts .
 COPY settings.gradle .
+COPY gateway .
 COPY kingen .
 COPY rabbit .
-COPY src src
+COPY src .
 
 RUN chmod +x ./gradlew
 RUN ./gradlew clean build -x test
