@@ -1,16 +1,16 @@
 FROM openjdk:17-jdk-slim AS builder
 
-COPY gradlew .
+COPY gradlew gradlew
 COPY gradle gradle
-COPY build.gradle.kts .
-COPY settings.gradle .
-COPY gateway .
-COPY kingen .
-COPY rabbit .
-COPY src .
+COPY build.gradle.kts build.gradle.kts
+COPY settings.gradle settings.gradle
+COPY gateway gateway
+COPY kingen kingen
+COPY rabbit rabbit
+COPY src src
 
 RUN chmod +x ./gradlew
-RUN ./gradlew build
+RUN ./gradlew clean build
 
 FROM openjdk:17-jdk-slim
 COPY --from=builder build/libs/kingen-0.0.1-SNAPSHOT.jar kingen.jar
