@@ -10,7 +10,7 @@ COPY rabbit .
 COPY src .
 
 RUN chmod +x ./gradlew
-RUN ./gradlew clean build -x test
+RUN ./gradlew build
 
 FROM openjdk:17-jdk-slim
 COPY --from=builder build/libs/kingen-0.0.1-SNAPSHOT.jar kingen.jar
