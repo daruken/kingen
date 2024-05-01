@@ -18,8 +18,9 @@ jobs:
           username: ${{ vars.BACK_DOCKER_USERNAME }}
           password: ${{ secrets.BACK_DOCKER_TOKEN }}
 
-      - name: Build Docker image
-        run: docker build -t ${{ vars.IMAGE_NAME }}:${{ github.sha }} .
-
-      - name: Push Docker image
-        run: docker push ${{ vars.BACK_DOCKER_USERNAME }}/${{ vars.IMAGE_NAME }}:${{ github.sha }}
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          push: true
+          tags: '${{ vars.IMAGE_NAME }}:${{ github.sha }}'
