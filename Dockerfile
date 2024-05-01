@@ -4,6 +4,8 @@ COPY gradlew .
 COPY gradle gradle
 COPY build.gradle.kts .
 COPY settings.gradle .
+COPY kingen .
+COPY rabbit .
 COPY src src
 
 RUN chmod +x ./gradlew
