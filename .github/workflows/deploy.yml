@@ -40,4 +40,4 @@ jobs:
           context: .
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: daruken/kingen:${{ github.sha }}, daruken/gateway:${{ github.sha }}, daruken/rabbit:${{ github.sha }}
+          tags: daruken/kingen:latest, daruken/gateway:latest, daruken/rabbit:latest
